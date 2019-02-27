@@ -12,12 +12,12 @@
     - name: Launch instance
       ec2:
          key_name: "{{ keypair }}"
-         group_id: sg-043b966dd24df94d7
+         group_id: sg-07552bfc362f3cd19
          instance_type: "{{ instance_type }}"
          image: "{{ image }}"
          wait: true
          region: "{{ region }}"
-         vpc_subnet_id: subnet-0910cfbf52368fbad
+         vpc_subnet_id: subnet-02f9526553e6fa314
          instance_profile_name: s3-mybucket-role
          assign_public_ip: yes
       register: ec2
