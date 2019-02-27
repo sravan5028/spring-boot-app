@@ -1,6 +1,6 @@
 ---
   - name: Provision an EC2 Instance
-    hosts: ansible-server
+    hosts: localhost
     connection: local
     gather_facts: False
     vars:
@@ -12,12 +12,12 @@
     - name: Launch instance
       ec2:
          key_name: "{{ keypair }}"
-         group_id: sg-07552bfc362f3cd19
+         group_id: sg-0f21486bb8c4ca019
          instance_type: "{{ instance_type }}"
          image: "{{ image }}"
          wait: true
          region: "{{ region }}"
-         vpc_subnet_id: subnet-02f9526553e6fa314
+         vpc_subnet_id: subnet-09d6e8e0dc6ba0435
          instance_profile_name: s3-mybucket-role
          assign_public_ip: yes
       register: ec2
