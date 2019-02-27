@@ -7,7 +7,7 @@
       keypair: windows
       instance_type: t2.micro
       image: ami-0ad42f4f66f6c1cc9
-      region: ap-south-1
+      region: us-east-1
     tasks:
     - name: Launch instance
       ec2:
