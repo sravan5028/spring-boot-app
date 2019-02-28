@@ -32,7 +32,7 @@ pipeline {
           withMaven(maven: 'maven') {
           sh 'mvn clean package -DskipTests'
           }
-       ansiblePlaybook become: true, colorized: true, credentialsId: 'windows', disableHostKeyChecking: true, inventory: '/tmp/hosts_dev', playbook: 'deployArtifact.yaml'
+       ansiblePlaybook become: true, colorized: true, credentialsId: 'ansipem', disableHostKeyChecking: true, inventory: '/tmp/hosts_dev', playbook: 'deployArtifact.yaml'
         
         }}
    }
