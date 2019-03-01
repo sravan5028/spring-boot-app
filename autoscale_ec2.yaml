@@ -27,7 +27,7 @@
       ec2_asg:
         name: myasg
         launch_config_name: new_lc2
-        target_group_arns: arn:aws:elasticloadbalancing:us-east-1:358537675364:targetgroup/alb-target-group/a738ddc361eca6d5
+        target_group_arns: arn:aws:elasticloadbalancing:us-east-1:266734962886:targetgroup/alb-target-gsk/bc3ac5e76e1a470a
         health_check_period: 500
         health_check_type: EC2
         wait_for_instances: yes
