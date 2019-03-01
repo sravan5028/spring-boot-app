@@ -15,7 +15,7 @@
     -
       name: "Deploy artifact from nexus repo"
       get_url:
-        url: "http://172.31.30.103:8081/nexus/content/repositories/maven_spring_boot/com/spring-boot-aop/0.0.1/spring-boot-aop-0.0.1.jar"
+        url: "http://52.55.238.157:8081/nexus/content/repositories/gsk_snapshot/spring-boot-aop-0.0.1-SNAPSHOT.jar"
         dest: /tmp/.
         url_username: admin
         url_password: admin123
