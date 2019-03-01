@@ -1,25 +1,25 @@
 ---
   - name: Provision an EC2 Instance with autoscaling groups
-    hosts: ansible-server
+    hosts: localhost
     connection: local
     gather_facts: False
     vars:
-      keypair: windows
+      keypair: ansi
       instance_type: t2.micro
-      image: ami-0ad42f4f66f6c1cc9
-      region: ap-south-1
+      image: ami-0080e4c5bc078760e
+      region: us-east-1
     tasks:
     - name: create Launch conf
       ec2_lc:
         name: new_lc2
         key_name: "{{ keypair }}"
-        security_groups: sg-0773067e9e7d59309
+        security_groups: sg-0f21486bb8c4ca019
         instance_type: "{{ instance_type }}"
         image_id: "{{ image }}"
         user_data: "{{ lookup('file','user_data.sh')}}"
         region: "{{ region }}"
         instance_profile_name: s3-mybucket-role
-        vpc_id: vpc-0b222256c0ab45539
+        vpc_id: vpc-02fd21ded18cda644
         assign_public_ip: yes
         state: present
       register: ec2
@@ -27,7 +27,7 @@
       ec2_asg:
         name: myasg
         launch_config_name: new_lc2
-        target_group_arns: arn:aws:elasticloadbalancing:ap-south-1:358537675364:targetgroup/alb-target-group/a738ddc361eca6d5
+        target_group_arns: arn:aws:elasticloadbalancing:us-east-1:358537675364:targetgroup/alb-target-group/a738ddc361eca6d5
         health_check_period: 500
         health_check_type: EC2
         wait_for_instances: yes
@@ -36,8 +36,8 @@
         min_size: 2
         max_size: 5
         desired_capacity: 3
-        region: ap-south-1
-        vpc_zone_identifier: [ 'subnet-0a3e650f745f7eb6c', 'subnet-02683ed174022a50d' ]
+        region: us-east-1
+        vpc_zone_identifier: [ 'subnet-09d6e8e0dc6ba0435', 'subnet-0440e41693760b998' ]
         state: present
         tags:
           - environment: stable
