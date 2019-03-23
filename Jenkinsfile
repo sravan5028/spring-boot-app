@@ -31,7 +31,7 @@ nexusPublisher nexusInstanceId: 'nexus', nexusRepositoryId: 'maven_release', pac
           withMaven(maven: 'maven') {
           sh 'mvn clean package -DskipTests'
           }
-       ansiblePlaybook become: true, colorized: true, credentialsId: 'ansipem', disableHostKeyChecking: true, inventory: '/tmp/hosts_dev', playbook: 'deployArtifact.yaml'
+       ansiblePlaybook become: true, colorized: true, credentialsId: 'ansi', disableHostKeyChecking: true, inventory: '/tmp/hosts_dev', playbook: 'deployArtifact.yaml'
         
         }}
    }
